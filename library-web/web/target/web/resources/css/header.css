@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+html {
+  font-family: monospace;
+}
+
+.header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 70%; 
+  height: auto; 
+}
+
+.params {
+  margin: auto 0;
+}
+
+.locale {
+  margin-bottom: 10px;	
+}
+
+.header button {
+  font-family: monospace;
+  font-size: 150%;
+  border-radius: 2px;
+  border: 0px;
+  margin-bottom: 10px;
+  padding: 2px 5px;
+}

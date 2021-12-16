@@ -1,0 +1,13 @@
+com\cheb\entity\Book.class
+com\cheb\util\PropertiesUtil.class
+com\cheb\entity\Role.class
+com\cheb\util\ConnectionManager.class
+com\cheb\exception\DaoException.class
+com\cheb\dao\BookDao.class
+com\cheb\dao\UserDao.class
+com\cheb\dao\Dao.class
+com\cheb\entity\User$UserBuilder.class
+com\cheb\dao\DaoProvider.class
+com\cheb\entity\Book$BookBuilder.class
+com\cheb\entity\BookType.class
+com\cheb\entity\User.class

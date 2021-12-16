@@ -1,0 +1,45 @@
+html {
+  font-family: monospace;
+}
+
+h1 {
+  text-align: center;
+  background: #ddd;
+  padding: 20px;
+  font-size: 200%;
+  font-weight: bolt;
+}
+
+.createBook {
+ width: 100%;
+ font-size: 150%;
+}
+
+.createBookForm {
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+}
+
+.createBookForm button {
+  font-family: monospace;
+  font-size: 120%;
+  border-radius: 2px;
+  border: 0px;
+  padding: 2px 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.createBookForm input{
+  margin-bottom: 7px;
+}
+
+.createBookForm select{
+  font-family: monospace;
+}
+
+.errors {
+  margin: 0 auto;
+  color: #red;
+}

@@ -1,0 +1,41 @@
+html {
+  font-family: monospace;
+}
+
+h1 {
+  text-align: center;
+  background: #ddd;
+  padding: 20px;
+  font-size: 200%;
+  font-weight: bolt;
+}
+
+.registration {
+ width: 100%;
+ font-size: 150%;
+}
+
+.registrationForm {
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+}
+
+.registrationForm button {
+  font-family: monospace;
+  font-size: 120%;
+  border-radius: 2px;
+  border: 0px;
+  padding: 2px 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.registrationForm input{
+  margin-bottom: 7px;
+}
+
+.errors {
+  margin: 0 auto;
+  color: #red;
+}

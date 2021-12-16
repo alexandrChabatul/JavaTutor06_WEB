@@ -1,0 +1,11 @@
+C:\Users\CompS\eclipse-workspace\library-web\database\src\main\java\com\cheb\dao\Dao.java
+C:\Users\CompS\eclipse-workspace\library-web\database\src\main\java\com\cheb\entity\Role.java
+C:\Users\CompS\eclipse-workspace\library-web\database\src\main\java\com\cheb\entity\Book.java
+C:\Users\CompS\eclipse-workspace\library-web\database\src\main\java\com\cheb\dao\BookDao.java
+C:\Users\CompS\eclipse-workspace\library-web\database\src\main\java\com\cheb\entity\BookType.java
+C:\Users\CompS\eclipse-workspace\library-web\database\src\main\java\com\cheb\dao\DaoProvider.java
+C:\Users\CompS\eclipse-workspace\library-web\database\src\main\java\com\cheb\exception\DaoException.java
+C:\Users\CompS\eclipse-workspace\library-web\database\src\main\java\com\cheb\dao\UserDao.java
+C:\Users\CompS\eclipse-workspace\library-web\database\src\main\java\com\cheb\util\PropertiesUtil.java
+C:\Users\CompS\eclipse-workspace\library-web\database\src\main\java\com\cheb\util\ConnectionManager.java
+C:\Users\CompS\eclipse-workspace\library-web\database\src\main\java\com\cheb\entity\User.java

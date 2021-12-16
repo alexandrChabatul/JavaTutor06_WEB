@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+html {
+  font-family: monospace;
+}
+
+h1 {
+  text-align: center;
+  background: #ddd;
+  padding: 20px;
+  font-size: 200%;
+  font-weight: bolt;
+}
+
+main {
+  float: left;
+  display: flex;
+}
+
+section {
+  width: 70%;
+}
+
+.info {
+  width: 90%;
+  background: #999;
+  text-align: center;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+aside {
+  width: 30%;
+  padding: 20px;
+}
+
+aside button {
+  font-family: monospace;
+  border-radius: 2px;
+  border: 0px;
+  padding: 2px 5px;
+}
+
+.toolbar {
+  font-size: 200%;
+}
+
+.side {
+  font-size: 150%;
+  margin-top: 10px;
+  width: 100%;
+}
