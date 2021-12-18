@@ -15,22 +15,22 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(UrlPath.REGISTRATION)
-public class RegistrationServlet extends HttpServlet{
-	
+public class RegistrationServlet extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
 	private static final ServiceProvider provider = ServiceProvider.getInstance();
 	private static final String FAIL_MESSAGE = "Something go wrong. Please try again or try latter.";
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setAttribute("roles", List.of("USER", "ADMIN"));		
+		req.setAttribute("roles", List.of("USER", "ADMIN"));
 		req.getRequestDispatcher(JspHelper.getPath("registration"))
-			.forward(req, resp);	
+		.forward(req, resp);
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		CreateUserDto userDto = CreateUserDto.builder()
 				.name(req.getParameter("name"))
 				.email(req.getParameter("email"))
@@ -47,9 +47,6 @@ public class RegistrationServlet extends HttpServlet{
 			req.setAttribute("fail", FAIL_MESSAGE);
 			doGet(req, resp);
 		}
-
-		
-		
 	}
 
 }

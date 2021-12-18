@@ -20,28 +20,20 @@ public class CreateBookServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 3455074672300550159L;
 	private static final String FAIL_MESSAGE = "Something go wrong. Please try again or try latter.";
-	
 	private final ServiceProvider provider = ServiceProvider.getInstance();
-	
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("types", List.of("PAPER", "ELECTRONIC"));
-		req.getRequestDispatcher(JspHelper.getPath("createBook"))
-		.forward(req, resp);	
+		req.getRequestDispatcher(JspHelper.getPath("createBook")).forward(req, resp);
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		try {
-			var book = provider.getAdminRoleService().addBook(
-					CreateBookDto.builder()
-						.name(req.getParameter("title"))
-						.author(req.getParameter("author"))
-						.type(req.getParameter("type"))
-						.build()				
-					);
+			var book = provider.getAdminRoleService().addBook(CreateBookDto.builder().name(req.getParameter("title"))
+					.author(req.getParameter("author")).type(req.getParameter("type")).build());
 			req.getSession().setAttribute("book", book);
 			resp.sendRedirect(req.getContextPath() + UrlPath.SENDLER);
 		} catch (ValidationException e) {
@@ -51,7 +43,7 @@ public class CreateBookServlet extends HttpServlet {
 			req.setAttribute("service", FAIL_MESSAGE);
 			doGet(req, resp);
 		}
-		
+
 	}
-	
+
 }

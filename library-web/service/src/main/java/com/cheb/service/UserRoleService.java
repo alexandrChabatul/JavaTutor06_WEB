@@ -37,6 +37,4 @@ public class UserRoleService implements RoleService<String, BookDto> {
 		return bookService.getAllBooksByAuthorCount(author);
 	}
 	
-	
-
 }

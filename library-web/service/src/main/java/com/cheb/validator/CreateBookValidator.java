@@ -29,5 +29,4 @@ public class CreateBookValidator implements Validator<CreateBookDto>{
 		return INSTANCE;
 	}
 	
-	
 }

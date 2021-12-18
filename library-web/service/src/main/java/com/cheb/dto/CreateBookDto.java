@@ -10,5 +10,5 @@ public class CreateBookDto {
 	String name;
 	String author;
 	String type;
-	
+
 }

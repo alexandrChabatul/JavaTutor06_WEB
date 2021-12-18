@@ -5,12 +5,12 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class DaoProvider {
-	
+
 	private static final DaoProvider INSTANCE = new DaoProvider();
-	
+
 	private UserDao userDao = new UserDao();
 	private BookDao bookDao = new BookDao();
-	
+
 	public static DaoProvider getInstance() {
 		return INSTANCE;
 	}
@@ -18,7 +18,7 @@ public class DaoProvider {
 	public UserDao getUserDao() {
 		return userDao;
 	}
-	
+
 	public BookDao getBookDao() {
 		return bookDao;
 	}

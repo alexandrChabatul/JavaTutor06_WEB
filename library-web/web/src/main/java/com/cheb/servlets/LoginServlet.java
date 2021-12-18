@@ -15,31 +15,27 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
 
 @WebServlet(UrlPath.LOGIN)
-public class LoginServlet extends HttpServlet{
-	
+public class LoginServlet extends HttpServlet {
+
 	private static final long serialVersionUID = 8851140932199929399L;
 	private final ServiceProvider provider = ServiceProvider.getInstance();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher(JspHelper.getPath("login"))
-		.forward(req, resp);	
+		req.getRequestDispatcher(JspHelper.getPath("login")).forward(req, resp);
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			provider.getUserService().login(req.getParameter("email"), req.getParameter("password"))
-				.ifPresentOrElse(
-						user -> onLoginSucces(user, req, resp),
-						() -> onLoginFail(req, resp)
-						);
+					.ifPresentOrElse(user -> onLoginSucces(user, req, resp), () -> onLoginFail(req, resp));
 		} catch (ServiceException e) {
-			resp.sendRedirect(req.getContextPath() + "/login?error&service");	
+			resp.sendRedirect(req.getContextPath() + "/login?error&service");
 		}
-		
+
 	}
-	
+
 	@SneakyThrows
 	private void onLoginFail(HttpServletRequest req, HttpServletResponse resp) {
 		resp.sendRedirect(req.getContextPath() + "/login?error&email=" + req.getParameter("email"));

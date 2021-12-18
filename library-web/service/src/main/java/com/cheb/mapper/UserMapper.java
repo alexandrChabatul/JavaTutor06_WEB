@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserMapper implements Mapper<User, UserDto>{
 	
-		private static final UserMapper INSTANCE = new UserMapper();
+	private static final UserMapper INSTANCE = new UserMapper();
 
 	@Override
 	public UserDto mapFrom(User object) {

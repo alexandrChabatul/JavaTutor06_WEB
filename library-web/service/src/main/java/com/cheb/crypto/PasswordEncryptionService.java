@@ -19,7 +19,7 @@ public class PasswordEncryptionService {
 	public String[] getPassword(String password) {
 		byte[] salt = generateSalt();
 		String encryptedPassword = getEncriptedPassword(password, salt);
-		return new String[]{encryptedPassword, Base64.getEncoder().encodeToString(salt)};
+		return new String[] { encryptedPassword, Base64.getEncoder().encodeToString(salt) };
 	}
 
 	@SneakyThrows

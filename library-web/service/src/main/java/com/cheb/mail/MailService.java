@@ -53,8 +53,8 @@ public class MailService {
 			te.close();
 		} catch (Exception e) {
 			throw new ServiceException(e);
-		} 
-		
+		}
+
 	}
 
 	@SneakyThrows
