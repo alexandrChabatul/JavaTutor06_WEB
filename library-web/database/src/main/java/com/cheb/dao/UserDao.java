@@ -33,9 +33,8 @@ public class UserDao implements Dao<Integer, User> {
 
 			if (executeQuery.next()) {
 				user = createUser(executeQuery);
-				return Optional.of(user);
 			}
-			return Optional.empty();
+			return Optional.ofNullable(user);
 		} catch (SQLException e) {
 			throw new DaoException(e);
 		}
@@ -88,9 +87,8 @@ public class UserDao implements Dao<Integer, User> {
 
 			if (executeQuery.next()) {
 				user = createUser(executeQuery);
-				return Optional.of(user);
 			}
-			return Optional.empty();
+			return Optional.ofNullable(user);
 		} catch (SQLException e) {
 			throw new DaoException(e);
 		}
@@ -139,7 +137,6 @@ public class UserDao implements Dao<Integer, User> {
 
 	@Override
 	public List<User> findAll(Integer start, Integer end) throws DaoException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

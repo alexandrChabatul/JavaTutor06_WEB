@@ -22,21 +22,15 @@ public class BooksServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			int page = 1;
 			int numOfPages = (int) Math.ceil((double) provider.getUserRoleService().countAllBook() / BOOKS_PER_PAGE);
-			if (req.getParameter("page") != null) {
-				try {
-					page = Integer.parseInt(req.getParameter("page")) > 0 ? Integer.parseInt(req.getParameter("page"))
-							: 1;
-					page = page > numOfPages ? numOfPages : page;
-				} catch (NumberFormatException e) {
-				}
-			}
-			var books = provider.getUserRoleService().findAllBooks((page * BOOKS_PER_PAGE - BOOKS_PER_PAGE),
+
+			int currentPage = getPage(req, numOfPages);
+
+			var books = provider.getUserRoleService().findAllBooks((currentPage * BOOKS_PER_PAGE - BOOKS_PER_PAGE),
 					BOOKS_PER_PAGE);
 			req.setAttribute("books", books);
 			req.setAttribute("numOfPages", numOfPages);
-			req.setAttribute("currentPage", page);
+			req.setAttribute("currentPage", currentPage);
 			req.getRequestDispatcher(JspHelper.getPath("books")).forward(req, resp);
 		} catch (ServiceException e) {
 			req.setAttribute("error", e);
@@ -49,24 +43,15 @@ public class BooksServlet extends HttpServlet {
 		if (req.getParameter("name") != null) {
 			try {
 				var name = req.getParameter("name");
-				int page = 1;
-				int numOfPages = (int) Math
-						.ceil((double) provider.getUserRoleService().countAllBookByName(name) / BOOKS_PER_PAGE);
-				if (req.getParameter("page") != null) {
-					try {
-						page = Integer.parseInt(req.getParameter("page")) > 0
-								? Integer.parseInt(req.getParameter("page"))
-								: 1;
-						page = page > numOfPages ? numOfPages : page;
-					} catch (NumberFormatException e) {
-					}
-				}
+				
+				int numOfPages = (int) Math.ceil((double) provider.getUserRoleService().countAllBookByName(name) / BOOKS_PER_PAGE);
+				int currentPage = getPage(req, numOfPages);
 				var books = provider.getUserRoleService().findBooksByName(name,
-						(page * BOOKS_PER_PAGE - BOOKS_PER_PAGE), BOOKS_PER_PAGE);
+						(currentPage * BOOKS_PER_PAGE - BOOKS_PER_PAGE), BOOKS_PER_PAGE);
 				req.setAttribute("name", name);
 				req.setAttribute("books", books);
 				req.setAttribute("numOfPages", numOfPages);
-				req.setAttribute("currentPage", page);
+				req.setAttribute("currentPage", currentPage);
 				req.getRequestDispatcher(JspHelper.getPath("books")).forward(req, resp);
 			} catch (ServiceException e) {
 				req.setAttribute("error", e);
@@ -75,24 +60,15 @@ public class BooksServlet extends HttpServlet {
 		} else if (req.getParameter("author") != null) {
 			try {
 				var author = req.getParameter("author");
-				int page = 1;
-				int numOfPages = (int) Math
-						.ceil((double) provider.getUserRoleService().countAllBookByAuthor(author) / BOOKS_PER_PAGE);
-				if (req.getParameter("page") != null) {
-					try {
-						page = Integer.parseInt(req.getParameter("page")) > 0
-								? Integer.parseInt(req.getParameter("page"))
-								: 1;
-						page = page > numOfPages ? numOfPages : page;
-					} catch (NumberFormatException e) {
-					}
-				}
+				
+				int numOfPages = (int) Math.ceil((double) provider.getUserRoleService().countAllBookByAuthor(author) / BOOKS_PER_PAGE);
+				int currentPage = getPage(req, numOfPages);
 				var books = provider.getUserRoleService().findBooksByAuthor(author,
-						(page * BOOKS_PER_PAGE - BOOKS_PER_PAGE), BOOKS_PER_PAGE);
+						(currentPage * BOOKS_PER_PAGE - BOOKS_PER_PAGE), BOOKS_PER_PAGE);
 				req.setAttribute("author", author);
 				req.setAttribute("books", books);
 				req.setAttribute("numOfPages", numOfPages);
-				req.setAttribute("currentPage", page);
+				req.setAttribute("currentPage", currentPage);
 				req.getRequestDispatcher(JspHelper.getPath("books")).forward(req, resp);
 			} catch (ServiceException e) {
 				req.setAttribute("error", e);
@@ -101,5 +77,17 @@ public class BooksServlet extends HttpServlet {
 		} else {
 			doGet(req, resp);
 		}
+	}
+
+	private int getPage(HttpServletRequest req, int numOfPages) {
+		int page = 1;
+		if (req.getParameter("page") != null) {
+			try {
+				page = Integer.parseInt(req.getParameter("page")) > 0 ? Integer.parseInt(req.getParameter("page")) : 1;
+				page = page > numOfPages ? numOfPages : page;
+			} catch (NumberFormatException e) {
+			}
+		}
+		return page;
 	}
 }

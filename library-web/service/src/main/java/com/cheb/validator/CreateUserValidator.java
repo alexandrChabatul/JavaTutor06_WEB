@@ -31,7 +31,7 @@ public class CreateUserValidator implements Validator<CreateUserDto>{
 		}
 		
 		if (userDto.getName().contains(" ")) {
-			validationResult.add(Error.of("Invalid.Email", "Name cannot contains spaces."));
+			validationResult.add(Error.of("Invalid.Email", "Name can't contains spaces."));
 		}
 		
 		if (Role.find(userDto.getRole()).isEmpty()) {

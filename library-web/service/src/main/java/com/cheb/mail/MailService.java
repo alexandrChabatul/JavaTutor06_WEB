@@ -35,7 +35,9 @@ public class MailService {
 		try {
 			Properties properties = new Properties();
 			properties.load(MailService.class.getClassLoader().getResourceAsStream(MAIL_PROPERTIES_NAME));
-			Address[] addresses = emailTo.stream().map(MailService::getAddress).toArray(Address[]::new);
+			Address[] addresses = emailTo.stream()
+					.map(MailService::getAddress)
+					.toArray(Address[]::new);
 			StringBuffer sb = new StringBuffer();
 			books.forEach(book -> sb.append(book.getAuthor()).append(" - ").append(book.getName()).append(System.lineSeparator()));
 			String textMessage = TEXT.formatted(sb.toString());
